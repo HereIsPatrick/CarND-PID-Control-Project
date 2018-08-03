@@ -1,7 +1,47 @@
-# CarND-Controls-PID
-Self-Driving Car Engineer Nanodegree Program
+# Self-Driving Car with PID controller
 
 ---
+
+## Objective
+This project use PID(proportional-integral-differential) controller algorithm to steer angle in car simulator.
+
+I use two throttle of this project.(0.3 and 0.5)
+Tune PID parameters by manually and simulate under autonomous mode.
+
+---
+### Demo Video
+you can click the image as below to watch video.
+
+##### PID Control Throttle=0.3 PID=(0.12, 0.001, 1.5)
+[![PID 0.3](http://img.youtube.com/vi/s-B8egK9FaU/0.jpg)](https://www.youtube.com/watch?v=s-B8egK9FaU "PID 0.3")
+
+---
+##### PID Control Throttle=0.5 PID=(0.09, 0.001, 2.0)
+[![PID 0.5](http://img.youtube.com/vi/Zz4cQCxUZrY/0.jpg)](https://www.youtube.com/watch?v=Zz4cQCxUZrY "PID 0.5")
+
+## Parameters of PID
+Description of PID parameters.
+
+* P is proportional to the current value of the error. Just using a proportional controller is overshoot.
+* I is accounts for past values of the error. Integral of the error, and controller will apply stronger action.
+* D is a best estimate of the future trend of the error. Differential is feedback to controller how quickly moving back.
+
+## How to tune the parameters.
+
+Tune parameters by manually.
+
+### Steps:
+1. Set I and D to zero.
+2. Start P with 0.2, and adjust it up and down till car drive around the corner.
+3. Then tune D from 1, adjust it till car more stable.
+4. Tune I from 0.001, to restrict the car drifting away from center of the lane.   
+
+It's not easy job that to tune parameters by manually.
+
+So Sebastian Thrun show a method. It's Twiddle that can tune parameters by automation.
+
+[![Twiddle](http://img.youtube.com/vi/2uQ2BSzDvXs/0.jpg)](https://www.youtube.com/watch?v=2uQ2BSzDvXs "Twiddle")
+
 
 ## Dependencies
 
@@ -92,7 +132,4 @@ that's just a guess.
 
 One last note here: regardless of the IDE used, every submitted project must
 still be compilable with cmake and make./
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 

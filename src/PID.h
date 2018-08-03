@@ -2,20 +2,21 @@
 #define PID_H
 
 class PID {
-public:
-  /*
-  * Errors
-  */
-  double p_error;
-  double i_error;
-  double d_error;
+private:
+  // Error
+  double _p_error;
+  double _i_error;
+  double _d_error;
+  double _prev_cte;
 
-  /*
-  * Coefficients
-  */ 
-  double Kp;
-  double Ki;
-  double Kd;
+  long _count;
+  double _error_sum;
+
+  double _Kp;
+  double _Ki;
+  double _Kd;
+
+public:
 
   /*
   * Constructor
@@ -41,6 +42,12 @@ public:
   * Calculate the total PID error.
   */
   double TotalError();
+
+  /*
+  *  Returns the average error.
+  */
+  double AverageError();
+
 };
 
 #endif /* PID_H */
